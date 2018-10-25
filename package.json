@@ -1,0 +1,18 @@
+{
+  "name": "grpc-benchmarking",
+  "version": "1.0.0",
+  "description": "For generating load, [ghz](https://github.com/bojand/ghz) is used.",
+  "main": "server-grpc-js.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Colin J. Ihrig <cjihrig@gmail.com> (http://www.cjihrig.com/)",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/grpc-js": "^0.3.2",
+    "@grpc/proto-loader": "^0.3.0",
+    "grpc": "^1.15.1",
+    "grpc-server-js": "0.0.6"
+  }
+}
