@@ -29,38 +29,36 @@ These are the results on macOS Mojave running on a late 2016 MBP with:
 
 ```
 Summary:
-  Count:	3529076
-  Total:	40003.21 ms
-  Slowest:	59.37 ms
-  Fastest:	2.40 ms
-  Average:	0.12 ms
-  Requests/sec:	88219.82
+  Count:	427266
+  Total:	40006.10 ms
+  Slowest:	52.00 ms
+  Fastest:	0.96 ms
+  Average:	9.32 ms
+  Requests/sec:	10680.02
 
 Response time histogram:
-  2.399 [1]	|
-  8.096 [10824]	|∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
-  13.793 [23018]	|∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
-  19.489 [4269]	|∎∎∎∎∎∎∎
-  25.186 [1688]	|∎∎∎
-  30.883 [90]	|
-  36.579 [239]	|
-  42.276 [0]	|
-  47.973 [0]	|
-  53.669 [0]	|
-  59.366 [100]	|
+  0.962 [1]	|
+  6.066 [23826]	|∎∎∎
+  11.170 [325308]	|∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
+  16.273 [66550]	|∎∎∎∎∎∎∎∎
+  21.377 [9938]	|∎
+  26.480 [1226]	|
+  31.584 [242]	|
+  36.688 [11]	|
+  41.791 [64]	|
+  46.895 [0]	|
+  51.999 [100]	|
 
 Latency distribution:
-  10% in 6.93 ms
-  25% in 7.95 ms
-  50% in 9.50 ms
-  75% in 11.59 ms
-  90% in 16.21 ms
-  95% in 19.67 ms
-  99% in 27.37 ms
+  10% in 6.79 ms
+  25% in 7.66 ms
+  50% in 8.77 ms
+  75% in 10.39 ms
+  90% in 12.58 ms
+  95% in 14.73 ms
+  99% in 18.28 ms
 Status code distribution:
-  [OK]	40229 responses
-Error distribution:
-  [3488847]	rpc error: code = ResourceExhausted desc = stream terminated by RST_STREAM with error code: ENHANCE_YOUR_CALM
+  [OK]	427266 responses
 ```
 
 ### Node.js server-grpc
