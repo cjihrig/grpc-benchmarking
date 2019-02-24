@@ -1,0 +1,15 @@
+[package]
+name    = "echo"
+version = "0.1.0"
+authors = ["geek <wpreul@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+grpc               = "~0.6"
+httpbis            = "~0.7"
+protobuf           = "~2"
+futures            = "~0.1"
+futures-cpupool    = "~0.1"
+
+[build-dependencies]
+protoc-rust-grpc = "0.6.1"

@@ -132,3 +132,41 @@ Latency distribution:
 Status code distribution:
   [OK]	2221650 responses
 ```
+
+### Rust
+
+Compiled in release mode
+
+```
+Summary:
+  Count:	784534
+  Total:	40002.99 ms
+  Slowest:	28.30 ms
+  Fastest:	0.70 ms
+  Average:	5.06 ms
+  Requests/sec:	19611.88
+
+Response time histogram:
+  0.699 [1]	|
+  3.459 [1824]	|
+  6.218 [678799]	|∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
+  8.978 [97017]	|∎∎∎∎∎∎
+  11.738 [5962]	|
+  14.497 [634]	|
+  17.257 [107]	|
+  20.017 [37]	|
+  22.776 [36]	|
+  25.536 [82]	|
+  28.295 [35]	|
+
+Latency distribution:
+  10% in 4.17 ms
+  25% in 4.32 ms
+  50% in 4.61 ms
+  75% in 5.89 ms
+  90% in 6.31 ms
+  95% in 6.59 ms
+  99% in 8.78 ms
+Status code distribution:
+  [OK]	784534 responses
+```
