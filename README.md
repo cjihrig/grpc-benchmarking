@@ -18,12 +18,42 @@ Gather all the datas:
 $ ghz -proto ./echo.proto -insecure -z 40s -c 100 -call EchoService/Echo -d '{}' localhost:3000
 ```
 
+To test that the service is working run the following:
+
+```
+$ grpcurl --plaintext --proto echo.proto localhost:3000 EchoService/Echo
+```
 
 ## Results
 
 These are the results on macOS Mojave running on a late 2016 MBP with:
 - 2.7 GHz Intel Core i7
 - 16 GB 2133 MHz LPDDR3
+
+### CPU Usage
+
+Using the [`sampleproc`](https://github.com/opendtrace/toolkit/blob/master/Proc/sampleproc) dtrace script the % of utilization of each process across all CPUs was determined, below are the results. Additionally, running the `topsysproc` script provided information about the number of syscalls for each during a 1 second period, which is also shown below.
+
+| Process | % CPU Usage | # of Samples | Avg Syscall Count |
+|---------|-------------|--------------|-------------------|
+| node    | 14          | 4596         | 2500              |
+| rust    | 14          | 4511         | 80000             |
+| go      | 30          | 10079        | 120000            |
+
+Below are htop results for each of the processe. As you can see, memory usage remained low for each process as well, with Node.js using the most.
+
+#### Go htop
+
+![go htop](images/go-htop.png)
+
+#### Rust htop
+
+![rust htop](images/rust-htop.png)
+
+
+#### Node.js htop
+
+![node htop](images/node-htop.png)
 
 ### Node.js server-grpc-js
 
@@ -99,38 +129,40 @@ Status code distribution:
 
 ### Go
 
+Running with GOMAXPROCS=1
+
 ```
 Summary:
-  Count:	2221650
-  Total:	40002.44 ms
-  Slowest:	48.80 ms
+  Count:	1742699
+  Total:	40001.02 ms
+  Slowest:	70.97 ms
   Fastest:	0.19 ms
-  Average:	1.76 ms
-  Requests/sec:	55537.86
+  Average:	2.26 ms
+  Requests/sec:	43566.37
 
 Response time histogram:
-  0.193 [1]	|
-  5.054 [991298]	|∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
-  9.915 [7403]	|
-  14.776 [837]	|
-  19.637 [168]	|
-  24.498 [174]	|
-  29.359 [25]	|
-  34.220 [1]	|
-  39.081 [0]	|
-  43.941 [44]	|
-  48.802 [49]	|
+  0.188 [1]	|
+  7.267 [998072]	|∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
+  14.345 [1313]	|
+  21.423 [208]	|
+  28.501 [107]	|
+  35.579 [104]	|
+  42.658 [54]	|
+  49.736 [62]	|
+  56.814 [43]	|
+  63.892 [30]	|
+  70.970 [6]	|
 
 Latency distribution:
-  10% in 1.15 ms
-  25% in 1.31 ms
-  50% in 1.53 ms
-  75% in 1.83 ms
-  90% in 2.36 ms
-  95% in 3.21 ms
-  99% in 4.91 ms
+  10% in 1.58 ms
+  25% in 1.91 ms
+  50% in 2.17 ms
+  75% in 2.47 ms
+  90% in 2.99 ms
+  95% in 3.37 ms
+  99% in 4.78 ms
 Status code distribution:
-  [OK]	2221650 responses
+  [OK]	1742699 responses
 ```
 
 ### Rust
@@ -139,34 +171,34 @@ Compiled in release mode
 
 ```
 Summary:
-  Count:	784534
-  Total:	40002.99 ms
-  Slowest:	28.30 ms
-  Fastest:	0.70 ms
-  Average:	5.06 ms
-  Requests/sec:	19611.88
+  Count:	806332
+  Total:	40008.54 ms
+  Slowest:	39.00 ms
+  Fastest:	1.06 ms
+  Average:	4.93 ms
+  Requests/sec:	20153.99
 
 Response time histogram:
-  0.699 [1]	|
-  3.459 [1824]	|
-  6.218 [678799]	|∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
-  8.978 [97017]	|∎∎∎∎∎∎
-  11.738 [5962]	|
-  14.497 [634]	|
-  17.257 [107]	|
-  20.017 [37]	|
-  22.776 [36]	|
-  25.536 [82]	|
-  28.295 [35]	|
+  1.059 [1]	|
+  4.853 [543524]	|∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
+  8.647 [259033]	|∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
+  12.441 [3479]	|
+  16.235 [44]	|
+  20.029 [90]	|
+  23.823 [48]	|
+  27.617 [85]	|
+  31.411 [0]	|
+  35.205 [4]	|
+  38.999 [24]	|
 
 Latency distribution:
-  10% in 4.17 ms
-  25% in 4.32 ms
-  50% in 4.61 ms
-  75% in 5.89 ms
-  90% in 6.31 ms
-  95% in 6.59 ms
-  99% in 8.78 ms
+  10% in 4.23 ms
+  25% in 4.39 ms
+  50% in 4.60 ms
+  75% in 5.14 ms
+  90% in 6.29 ms
+  95% in 6.50 ms
+  99% in 7.45 ms
 Status code distribution:
-  [OK]	784534 responses
+  [OK]	806332 responses
 ```
