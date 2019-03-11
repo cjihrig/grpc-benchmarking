@@ -59,72 +59,72 @@ Below are htop results for each of the processe. As you can see, memory usage re
 
 ```
 Summary:
-  Count:	427266
-  Total:	40006.10 ms
-  Slowest:	52.00 ms
-  Fastest:	0.96 ms
-  Average:	9.32 ms
-  Requests/sec:	10680.02
+  Count:    507558
+  Total:    40012.28 ms
+  Slowest:    49.65 ms
+  Fastest:    0.71 ms
+  Average:    7.85 ms
+  Requests/sec:    12685.06
 
 Response time histogram:
-  0.962 [1]	|
-  6.066 [23826]	|∎∎∎
-  11.170 [325308]	|∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
-  16.273 [66550]	|∎∎∎∎∎∎∎∎
-  21.377 [9938]	|∎
-  26.480 [1226]	|
-  31.584 [242]	|
-  36.688 [11]	|
-  41.791 [64]	|
-  46.895 [0]	|
-  51.999 [100]	|
+  0.713 [1]    |
+  5.607 [41278]    |∎∎∎∎
+  10.500 [419461]    |∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
+  15.394 [42988]    |∎∎∎∎
+  20.287 [2781]    |
+  25.181 [646]    |
+  30.074 [126]    |
+  34.968 [95]    |
+  39.861 [82]    |
+  44.755 [0]    |
+  49.648 [100]    |
 
 Latency distribution:
-  10% in 6.79 ms
-  25% in 7.66 ms
-  50% in 8.77 ms
-  75% in 10.39 ms
-  90% in 12.58 ms
-  95% in 14.73 ms
-  99% in 18.28 ms
+  10% in 5.84 ms
+  25% in 6.62 ms
+  50% in 7.27 ms
+  75% in 8.90 ms
+  90% in 10.32 ms
+  95% in 11.71 ms
+  99% in 14.51 ms
 Status code distribution:
-  [OK]	427266 responses
+  [OK]    507558 responses
 ```
 
 ### Node.js server-grpc
 
 ```
 Summary:
-  Count:	471199
-  Total:	40004.82 ms
-  Slowest:	7419.06 ms
-  Fastest:	1.84 ms
-  Average:	8.45 ms
-  Requests/sec:	11778.55
+  Count:    568545
+  Total:    40144.39 ms
+  Slowest:    1981.89 ms
+  Fastest:    2.32 ms
+  Average:    7.02 ms
+  Requests/sec:    14162.50
 
 Response time histogram:
-  1.841 [1]	|
-  743.563 [471098]	|∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
-  1485.284 [0]	|
-  2227.006 [0]	|
-  2968.727 [0]	|
-  3710.448 [0]	|
-  4452.170 [0]	|
-  5193.891 [0]	|
-  5935.613 [0]	|
-  6677.334 [0]	|
-  7419.055 [100]	|
+  2.323 [1]    |
+  200.279 [568044]    |∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
+  398.235 [200]    |
+  596.191 [0]    |
+  794.148 [0]    |
+  992.104 [0]    |
+  1190.060 [0]    |
+  1388.016 [0]    |
+  1585.973 [0]    |
+  1783.929 [200]    |
+  1981.885 [100]    |
 
 Latency distribution:
-  10% in 5.13 ms
-  25% in 5.78 ms
-  50% in 6.43 ms
-  75% in 7.16 ms
-  90% in 8.46 ms
-  95% in 9.62 ms
-  99% in 12.50 ms
+  10% in 4.71 ms
+  25% in 5.14 ms
+  50% in 5.55 ms
+  75% in 6.23 ms
+  90% in 7.39 ms
+  95% in 8.73 ms
+  99% in 11.49 ms
 Status code distribution:
-  [OK]	471199 responses
+  [OK]    568545 responses
 ```
 
 ### Go
