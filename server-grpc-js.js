@@ -1,6 +1,7 @@
 'use strict';
 const Path = require('path');
-const { Server, ServerCredentials } = require('grpc-server-js');
+const { Server, ServerCredentials } = require(process.env.GRPC_SERVER_DIR ||
+                                              'grpc-server-js');
 const { loadProtoFile } = require('./grpc-common');
 const protoFile = Path.join(__dirname, 'echo.proto');
 const { EchoService } = loadProtoFile(protoFile);
